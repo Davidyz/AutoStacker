@@ -1,5 +1,7 @@
 # AutoStacker
 
+**!!! This project is still under development and is not functional yet !!!**
+
 This is a script that attempts to automate the stacking process for noise
 reduction and/or simulating long-exposure effect.
 
@@ -41,3 +43,7 @@ modules/
         algo.py   // algorithms to call for the stacking.
         imageRW.py  // read and write the images.
 ```
+
+## Dependencies
+Executable: [exiftool](https://exiftool.org/) in your `$PATH`.  
+Python PyPi dependencies can be found (and installed) in [requirements.txt](requirements.txt).
