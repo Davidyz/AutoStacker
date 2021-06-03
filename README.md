@@ -12,9 +12,13 @@ This script uses [rawpy](https://pypi.org/project/rawpy/) and
 whether the script can support the raw file for your camera, check it out on 
 rawpy [official website](https://pypi.org/project/rawpy/).
 
+Since this project uses Type Hinting, a relatively new version of CPython is
+recommended but other version might work too. I developed this in a CPython 3.9
+environment.
+
 ## Aim
 
-This script aims to perform 2 types of actions:
+This script aims to perform 3 types of actions:
 
 1. when you want to do a time-lapse with images that are too noisy. In this
 case, you may use this script to do mean-stacking on the images. For example,
@@ -29,6 +33,10 @@ use, and it may consume too much memory. This script attempts to achieve the
 same thing with less resources (or at least do this in a (command-line only)
 Linux environment, so that you can move this heavy work to a server and free the
 resources on your PC).
+
+3. by using an individual `*.csv` file containing `time`, `latitude` and
+`longitude` data, add GPS data to the images. This can, and should be done on
+`JPG` files because it is harder to deal with exif of raw images.
 
 >Note that, because the RAW images contains un-debayered data, the debayer
 >algorithm of choice may be different from those used by your favourite
