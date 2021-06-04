@@ -3,6 +3,8 @@ import numpy as np
 from typing import Iterator
 from __future__ import annotations
 
+SUFFIX = ['jpg', 'tiff']
+
 class Image(np.ndarray):
     def __new__(cls, array: np.ndarray, meta=None, path=None) -> Image:
         self = array.view(Image, dtype=array.dtype)
@@ -87,6 +89,9 @@ def read(path: str, lazy: bool = True) -> Iterator[Image]:
             yield img
             if lazy:
                 del img     # this line will not be executed until the iteration goes into the next loop.
+
+def countImage(directory: str) -> int:
+    return len([i for i in os.listdir(directory) if i.split('.')[-1] in SUFFIX])
 
 if __name__ == '__main__':
     pass

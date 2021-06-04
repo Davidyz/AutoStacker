@@ -1,5 +1,13 @@
 import exiftool, os
-from typing import Dict, Iterable, Optional, List
+from typing import Dict, Iterable, Optional, List, Union
+
+GPS_SUFFIX = ['csv']
+
+def findGPSTrack(directory: str) -> Union[str, None]:
+    for i in os.listdir(directory):
+        if i.split('.')[-1] in GPS_SUFFIX:
+            return os.path.join(directory, i)
+    return None
 
 def readCSV(path:str) -> dict:
     with open(path, 'r') as fin:
@@ -15,6 +23,7 @@ def readCSV(path:str) -> dict:
                 headings = i.replace('\n', '').split(',')
                 for j in headings:
                     data[j] = []
+                count += 1
         return data
 
 def parseHeading(headings: List[str]) -> List[int]:
