@@ -65,8 +65,13 @@ def main():
 
     sourceGen = imageRW.read(config['source'])
     targetGen = algo.ALGORITHMS[config['mode']](sourceGen, config['group_size'])
+    if config.get('gpsFile') != None:
+        gpsTrack: dict = gps.getTrack(str(config.get('gpsFile')))
+        targetGen = gps.setGPS(gpsTrack, targetGen)
+
     for image in targetGen:
         image.setPath(os.path.join(config['target'], ))     # need to work out the new image names.
         image.write()
+
 if __name__ == '__main__':
     pass

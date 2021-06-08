@@ -50,6 +50,7 @@ resources on your PC).
 modules/
         algo.py   // algorithms to call for the stacking.
         imageRW.py  // read and write the images.
+        gps.py 	// everything related to gps tagging.
 ```
 
 ## Dependencies

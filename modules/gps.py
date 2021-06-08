@@ -1,5 +1,6 @@
 import exiftool, os
-from typing import Dict, Iterable, Optional, List, Union
+from typing import Dict, Iterable, Optional, List, Union, Iterator
+from modules.imageRW import Image
 
 GPS_SUFFIX = ['csv']
 
@@ -66,13 +67,12 @@ def getTrack(filePath: str) -> Dict[str, list]:
         raise IOError("The input file is not a valid GPS track.")
     return data
 
-def setGPS(iterGPS: Iterable, iterImages: Iterable):
+def setGPS(gpsTrack: dict, iterImages: Iterator[Image]) -> Iterator[Image]:
     '''
     Add GPS data to the images.
     iterGPS is the iterator from getTrack().
     iterImages is an iterable of paths to images.
     '''
-    pass
 
 if __name__ == '__main__':
     pass
