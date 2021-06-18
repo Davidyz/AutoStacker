@@ -1,3 +1,5 @@
 numpy
 rawpy
 exif
+imageio
+pyexiftool
